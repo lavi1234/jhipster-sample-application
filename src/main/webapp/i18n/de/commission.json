@@ -1,0 +1,29 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "commission": {
+      "home": {
+        "title": "Commissions",
+        "createLabel": "Commission erstellen",
+        "createOrEditLabel": "Commission erstellen oder bearbeiten",
+        "notFound": "No Commissions found"
+      },
+      "created": "Commission erstellt mit ID {{ param }}",
+      "updated": "Commission aktualisiert mit ID {{ param }}",
+      "deleted": "Commission gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Commission {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Commission"
+      },
+      "amount": "Amount",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "principalAmount": "Principal Amount",
+      "status": "Status",
+      "remarks": "Remarks",
+      "supplier": "Supplier",
+      "order": "Order"
+    }
+  }
+}

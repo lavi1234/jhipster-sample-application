@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-localization-heading" jhiTranslate="jhipsterSampleApplicationApp.localization.home.createOrEditLabel">Create or edit a Localization</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.localization.labelEn" for="field_labelEn">Label En</label>
+                    <input type="text" class="form-control" name="labelEn" id="field_labelEn"
+                           formControlName="labelEn"/>
+                    <div *ngIf="editForm.get('labelEn')!.invalid && (editForm.get('labelEn')!.dirty || editForm.get('labelEn')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('labelEn')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('labelEn')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.localization.labelDe" for="field_labelDe">Label De</label>
+                    <input type="text" class="form-control" name="labelDe" id="field_labelDe"
+                           formControlName="labelDe"/>
+                    <div *ngIf="editForm.get('labelDe')!.invalid && (editForm.get('labelDe')!.dirty || editForm.get('labelDe')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('labelDe')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('labelDe')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

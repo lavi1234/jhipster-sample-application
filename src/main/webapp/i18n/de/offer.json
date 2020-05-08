@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "offer": {
+      "home": {
+        "title": "Offers",
+        "createLabel": "Offer erstellen",
+        "createOrEditLabel": "Offer erstellen oder bearbeiten",
+        "notFound": "No Offers found"
+      },
+      "created": "Offer erstellt mit ID {{ param }}",
+      "updated": "Offer aktualisiert mit ID {{ param }}",
+      "deleted": "Offer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Offer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Offer"
+      },
+      "validUpto": "Valid Upto",
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "supplierEnquiry": "Supplier Enquiry",
+      "createdBy": "Created By",
+      "updatedBy": "Updated By"
+    }
+  }
+}

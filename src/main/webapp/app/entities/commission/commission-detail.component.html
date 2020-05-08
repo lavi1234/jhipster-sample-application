@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commission">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.commission.detail.title">Commission</span> {{ commission.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ commission.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ commission.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ commission.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.principalAmount">Principal Amount</span></dt>
+                <dd>
+                    <span>{{ commission.principalAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.status">Status</span></dt>
+                <dd>
+                    <span>{{ commission.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ commission.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="commission.supplierId">
+                        <a [routerLink]="['/user-profile', commission.supplierId, 'view']">{{ commission.supplierId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commission.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="commission.orderId">
+                        <a [routerLink]="['/order', commission.orderId, 'view']">{{ commission.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commission', commission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

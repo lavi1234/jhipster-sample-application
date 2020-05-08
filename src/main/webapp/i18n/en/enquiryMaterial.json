@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "enquiryMaterial": {
+      "home": {
+        "title": "Enquiry Materials",
+        "createLabel": "Create a new Enquiry Material",
+        "createOrEditLabel": "Create or edit a Enquiry Material",
+        "notFound": "No Enquiry Materials found"
+      },
+      "created": "A new Enquiry Material is created with identifier {{ param }}",
+      "updated": "A Enquiry Material is updated with identifier {{ param }}",
+      "deleted": "A Enquiry Material is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Enquiry Material {{ id }}?"
+      },
+      "detail": {
+        "title": "Enquiry Material"
+      },
+      "name": "Name",
+      "dimension": "Dimension",
+      "materialId": "Material Id",
+      "color": "Color",
+      "comments": "Comments",
+      "enquiryDetails": "Enquiry Details"
+    }
+  }
+}

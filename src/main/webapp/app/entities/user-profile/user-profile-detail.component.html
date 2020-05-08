@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userProfile">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.detail.title">User Profile</span> {{ userProfile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.salutation">Salutation</span></dt>
+                <dd>
+                    <span>{{ userProfile.salutation }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ userProfile.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ userProfile.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.profilePicture" [ngbTooltip]="'jhipsterSampleApplicationApp.userProfile.help.profilePicture' | translate">Profile Picture</span></dt>
+                <dd>
+                    <span>{{ userProfile.profilePicture }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ userProfile.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.userType">User Type</span></dt>
+                <dd>
+                    <span>{{ userProfile.userType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ userProfile.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ userProfile.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.user">User</span></dt>
+                <dd>
+                    {{ userProfile.userId }}
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userProfile.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="userProfile.companyId">
+                        <a [routerLink]="['/company', userProfile.companyId, 'view']">{{ userProfile.companyId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-profile', userProfile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "paymentDetails": {
+      "home": {
+        "title": "Payment Details",
+        "createLabel": "Payment Details erstellen",
+        "createOrEditLabel": "Payment Details erstellen oder bearbeiten",
+        "notFound": "No Payment Details found"
+      },
+      "created": "Payment Details erstellt mit ID {{ param }}",
+      "updated": "Payment Details aktualisiert mit ID {{ param }}",
+      "deleted": "Payment Details gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Payment Details {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Payment Details"
+      },
+      "bankName": "Bank Name",
+      "accountNumber": "Account Number",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "userProfile": "User Profile"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.commission.home.title">Commissions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commission" [routerLink]="['/commission/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.commission.home.createLabel">
+            Create a new Commission
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="commissions?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.commission.home.notFound">No commissions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="commissions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span jhiTranslate="jhipsterSampleApplicationApp.commission.amount">Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.commission.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="jhipsterSampleApplicationApp.commission.updatedAt">Updated At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="principalAmount"><span jhiTranslate="jhipsterSampleApplicationApp.commission.principalAmount">Principal Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhipsterSampleApplicationApp.commission.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="jhipsterSampleApplicationApp.commission.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierId"><span jhiTranslate="jhipsterSampleApplicationApp.commission.supplier">Supplier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="jhipsterSampleApplicationApp.commission.order">Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let commission of commissions ;trackBy: trackId">
+                    <td><a [routerLink]="['/commission', commission.id, 'view']">{{ commission.id }}</a></td>
+                    <td>{{ commission.amount }}</td>
+                    <td>{{ commission.createdAt | date:'medium' }}</td>
+                    <td>{{ commission.updatedAt | date:'medium' }}</td>
+                    <td>{{ commission.principalAmount }}</td>
+                    <td>{{ commission.status }}</td>
+                    <td>{{ commission.remarks }}</td>
+                    <td>
+                        <div *ngIf="commission.supplierId">
+                            <a [routerLink]="['/user-profile', commission.supplierId , 'view']" >{{ commission.supplierId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commission.orderId">
+                            <a [routerLink]="['/order', commission.orderId , 'view']" >{{ commission.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/commission', commission.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/commission', commission.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(commission)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="commissions?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

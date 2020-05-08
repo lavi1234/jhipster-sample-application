@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "offerPrice": {
+      "home": {
+        "title": "Offer Prices",
+        "createLabel": "Offer Price erstellen",
+        "createOrEditLabel": "Offer Price erstellen oder bearbeiten",
+        "notFound": "No Offer Prices found"
+      },
+      "created": "Offer Price erstellt mit ID {{ param }}",
+      "updated": "Offer Price aktualisiert mit ID {{ param }}",
+      "deleted": "Offer Price gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Offer Price {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Offer Price"
+      },
+      "price": "Price",
+      "createdAt": "Created At",
+      "finishingDate": "Finishing Date",
+      "offer": "Offer",
+      "enquiry": "Enquiry",
+      "enquiryDetails": "Enquiry Details"
+    }
+  }
+}

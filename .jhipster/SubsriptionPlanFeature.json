@@ -1,0 +1,35 @@
+{
+    "name": "SubsriptionPlanFeature",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "subscriptionPlan",
+            "otherEntityRelationshipName": "subsriptionPlanFeature",
+            "relationshipValidateRules": "required",
+            "relationshipName": "subscriptionPlan",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "appFeatures",
+            "otherEntityRelationshipName": "subsriptionPlanFeature",
+            "relationshipValidateRules": "required",
+            "relationshipName": "appFeature",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200508102800",
+    "entityTableName": "subsription_plan_feature",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

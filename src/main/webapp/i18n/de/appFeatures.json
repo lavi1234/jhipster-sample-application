@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "appFeatures": {
+      "home": {
+        "title": "App Features",
+        "createLabel": "App Features erstellen",
+        "createOrEditLabel": "App Features erstellen oder bearbeiten",
+        "notFound": "No App Features found"
+      },
+      "created": "App Features erstellt mit ID {{ param }}",
+      "updated": "App Features aktualisiert mit ID {{ param }}",
+      "deleted": "App Features gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll App Features {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "App Features"
+      },
+      "menuSortNumber": "Menu Sort Number",
+      "name": "Name",
+      "subsriptionPlanFeature": "Subsription Plan Feature"
+    }
+  }
+}

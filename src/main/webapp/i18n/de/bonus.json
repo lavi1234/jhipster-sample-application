@@ -1,0 +1,29 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bonus": {
+      "home": {
+        "title": "Bonuses",
+        "createLabel": "Bonus erstellen",
+        "createOrEditLabel": "Bonus erstellen oder bearbeiten",
+        "notFound": "No Bonuses found"
+      },
+      "created": "Bonus erstellt mit ID {{ param }}",
+      "updated": "Bonus aktualisiert mit ID {{ param }}",
+      "deleted": "Bonus gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bonus {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bonus"
+      },
+      "amount": "Amount",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "principalAmount": "Principal Amount",
+      "status": "Status",
+      "remarks": "Remarks",
+      "buyer": "Buyer",
+      "order": "Order"
+    }
+  }
+}

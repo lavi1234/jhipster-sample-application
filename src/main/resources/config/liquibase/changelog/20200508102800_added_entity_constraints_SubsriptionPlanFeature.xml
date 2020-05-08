@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity SubsriptionPlanFeature.
+    -->
+    <changeSet id="20200508102800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subsription_plan_feature_id"
+                                 baseTableName="subsription_plan_feature_subscription_plan"
+                                 constraintName="subsription_plan_feature_subsc_subsription_plan_feature_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subsription_plan_feature"/>
+
+        <addForeignKeyConstraint baseColumnNames="subscription_plan_id"
+                                 baseTableName="subsription_plan_feature_subscription_plan"
+                                 constraintName="subsription_plan_feature_subsc_subscription_plan_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subscription_plan"/>
+        
+        <addForeignKeyConstraint baseColumnNames="subsription_plan_feature_id"
+                                 baseTableName="subsription_plan_feature_app_feature"
+                                 constraintName="subsription_plan_feature_app_f_subsription_plan_feature_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subsription_plan_feature"/>
+
+        <addForeignKeyConstraint baseColumnNames="app_feature_id"
+                                 baseTableName="subsription_plan_feature_app_feature"
+                                 constraintName="fk_subsription_plan_feature_app_feature_app_feature_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_features"/>
+        
+    </changeSet>
+</databaseChangeLog>

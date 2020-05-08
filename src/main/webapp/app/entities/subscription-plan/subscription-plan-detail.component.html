@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriptionPlan">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.detail.title">Subscription Plan</span> {{ subscriptionPlan.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.validity">Validity</span></dt>
+                <dd>
+                    <span>{{ subscriptionPlan.validity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.price">Price</span></dt>
+                <dd>
+                    <span>{{ subscriptionPlan.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ subscriptionPlan.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ subscriptionPlan.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ subscriptionPlan.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.name">Name</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionPlan.nameId">
+                        <a [routerLink]="['/localization', subscriptionPlan.nameId, 'view']">{{ subscriptionPlan.nameId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subscriptionPlan.description">Description</span></dt>
+                <dd>
+                    <div *ngIf="subscriptionPlan.descriptionId">
+                        <a [routerLink]="['/localization', subscriptionPlan.descriptionId, 'view']">{{ subscriptionPlan.descriptionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscription-plan', subscriptionPlan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

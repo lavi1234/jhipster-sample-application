@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.home.title">Email Trackings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-email-tracking" [routerLink]="['/email-tracking/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.emailTracking.home.createLabel">
+            Create a new Email Tracking
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emailTrackings?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.home.notFound">No emailTrackings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emailTrackings?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="toEmail"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.toEmail">To Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subject"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.subject">Subject</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="message"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.message">Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receiverId"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.receiver">Receiver</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailTracking of emailTrackings ;trackBy: trackId">
+                    <td><a [routerLink]="['/email-tracking', emailTracking.id, 'view']">{{ emailTracking.id }}</a></td>
+                    <td>{{ emailTracking.toEmail }}</td>
+                    <td>{{ emailTracking.subject }}</td>
+                    <td>{{ emailTracking.message }}</td>
+                    <td>{{ emailTracking.type }}</td>
+                    <td>{{ emailTracking.createdAt | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="emailTracking.receiverId">
+                            <a [routerLink]="['/user-profile', emailTracking.receiverId , 'view']" >{{ emailTracking.receiverId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emailTracking.createdById">
+                            <a [routerLink]="['/user-profile', emailTracking.createdById , 'view']" >{{ emailTracking.createdById }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/email-tracking', emailTracking.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/email-tracking', emailTracking.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emailTracking)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="emailTrackings?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

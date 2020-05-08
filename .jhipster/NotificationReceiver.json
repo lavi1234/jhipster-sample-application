@@ -1,0 +1,48 @@
+{
+    "name": "NotificationReceiver",
+    "fields": [
+        {
+            "fieldName": "readStatus",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "notification",
+            "otherEntityRelationshipName": "notificationReceiver",
+            "relationshipValidateRules": "required",
+            "relationshipName": "notification",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userProfile",
+            "otherEntityRelationshipName": "notificationReceiver",
+            "relationshipValidateRules": "required",
+            "relationshipName": "userProfile",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508102000",
+    "entityTableName": "notification_receiver",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

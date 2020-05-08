@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentDetails">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.detail.title">Payment Details</span> {{ paymentDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.bankName">Bank Name</span></dt>
+                <dd>
+                    <span>{{ paymentDetails.bankName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ paymentDetails.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ paymentDetails.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ paymentDetails.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.paymentDetails.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="paymentDetails.userProfileId">
+                        <a [routerLink]="['/user-profile', paymentDetails.userProfileId, 'view']">{{ paymentDetails.userProfileId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment-details', paymentDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
