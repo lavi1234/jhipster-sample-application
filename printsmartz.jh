@@ -1,0 +1,588 @@
+entity Address {
+	id Integer required,
+	street String maxlength(200),
+	city String maxlength(200),
+	state String maxlength(200),
+	country String maxlength(200),
+	postalCode String maxlength(200),
+	geoLatitude Double required,
+	geoLongitude Double required
+}
+
+entity AppFeatures {
+	id Integer required,
+	menuSortNumber Integer required
+}
+
+entity Bonus {
+	id Integer required,
+	amount Double required,
+	createdAt Instant required,
+	updatedAt Instant required,
+	principalAmount Double required,
+	status String required maxlength(200),
+	remarks String required maxlength(255)
+}
+
+entity BonusReference {
+	id Integer required,
+	percentage BigDecimal required,
+	holdDays Integer required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity Cart {
+	id Integer required,
+	createdAt Instant required
+}
+
+entity Category {
+	id Integer required,
+	createdBy Integer required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity Commission {
+	id Integer required,
+	amount Double required,
+	createdAt Instant required,
+	updatedAt Instant required,
+	principalAmount Double required,
+	status String required maxlength(200),
+	remarks String maxlength(255)
+}
+
+entity CommissionReference {
+	id Integer required,
+	percentage BigDecimal required,
+	holdDays Integer required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity Company {
+	id Integer required,
+	name String required maxlength(200),
+	email String maxlength(200),
+	termsConditions String maxlength(255),
+	aboutUs String maxlength(255),
+	/** Url of uploaded catalogue document */
+	catalogue String maxlength(255),
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity EmailTracking {
+	id Integer required,
+	toEmail String required maxlength(200),
+	subject String maxlength(500),
+	message String maxlength(255),
+	type String required maxlength(200),
+	createdAt Instant required
+}
+
+entity Enquiry {
+	id Integer required,
+	description String required maxlength(255),
+	deliveryTerms String maxlength(255),
+	offerTaxtUntil LocalDate,
+	status String required maxlength(200)
+}
+
+entity EnquiryDetails {
+	id Integer required,
+	version Integer required,
+	edition Double required,
+	format Integer required,
+	documents String required maxlength(255),
+	deliveryDate LocalDate required,
+	remarks String required maxlength(255),
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity EnquiryMaterial {
+	id Integer required,
+	name String required maxlength(200),
+	dimension String required maxlength(200),
+	materialId Integer required,
+	color String required maxlength(200),
+	comments String maxlength(255)
+}
+
+entity EnquiryNote {
+	id Integer required,
+	note String required maxlength(255),
+	createdAt Instant required
+}
+
+entity Favourites {
+	id Integer required,
+	createdAt Instant required,
+	remarks String maxlength(255)
+}
+
+entity Localization {
+	id Integer required,
+	labelEn String required maxlength(255),
+	labelDe String required maxlength(255)
+}
+
+entity Message {
+	id Integer required,
+	subject String required maxlength(200),
+	message String maxlength(255),
+	createdAt Instant required,
+	apiResponse String maxlength(255),
+	discussionType String required maxlength(200),
+	readStatus Boolean
+}
+
+entity MessageDeleteDetails {
+	id Integer required,
+	deletedAt Instant required
+}
+
+entity Notification {
+	id Integer required,
+	title String required maxlength(200),
+	description String required maxlength(255),
+	bannerImage String maxlength(500),
+	createdAt Instant required
+}
+
+entity NotificationReceiver {
+	id Integer required,
+	readStatus Boolean required,
+	updatedAt Instant required
+}
+
+entity Offer {
+	id Integer required,
+	validUpto LocalDate required,
+	status String required maxlength(200),
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity OfferPrice {
+	id Integer required,
+	price Double required,
+	createdAt Instant required,
+	finishingDate LocalDate
+}
+
+entity Order {
+	id Integer required,
+	price Double required,
+	deliveryDate LocalDate required,
+	status String required maxlength(200),
+	commissionDate LocalDate required,
+	createdAt Instant required,
+	updatedAt Instant required,
+	remarks String required maxlength(255)
+}
+
+entity PaymentDetails {
+	id Integer required,
+	bankName String required maxlength(255),
+	accountNumber String required maxlength(255),
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity Rating {
+	id Integer required,
+	rating Integer required,
+	createdAt Instant required,
+	remarks String maxlength(255)
+}
+
+entity StaticPages {
+	id Integer required,
+	pageTitle String required maxlength(255),
+	heading String required maxlength(255),
+	description String maxlength(255),
+	createdAt Instant required,
+	updatedAt Instant required,
+	publish Boolean required
+}
+
+entity SubscriptionPlan {
+	id Integer required,
+	validity String required maxlength(100),
+	price Double required,
+	createdBy Integer required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity SubsriptionPlanFeature{
+	id Integer required
+}
+
+entity SupplierEnquiryMapping {
+	id Integer required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity TradingHours {
+	id Integer required,
+	day String required maxlength(200),
+	startTime String required minlength(8) maxlength(8) pattern(/^(([0-1]\d)|(2[0-3])):([0-5]\d):([0-5]\d)$/),
+	endTime String required minlength(8) maxlength(8) pattern(/^(([0-1]\d)|(2[0-3])):([0-5]\d):([0-5]\d)$/)
+}
+
+entity TransactionHistory {
+	id Integer required,
+	price Double required,
+	createdAt Instant required,
+	paymentGatewayToken String required maxlength(255),
+	paymentGatewayResponse String required maxlength(255),
+	status String required maxlength(200)
+}
+
+entity User {
+	id Integer required,
+	username String required maxlength(100),
+	password String required maxlength(100),
+	verified Boolean required,
+	userType String required maxlength(200),
+	reason String maxlength(255),
+	createdAt Instant required,
+	updatedAt Instant required,
+	userAgent String maxlength(255)
+}
+
+entity UserProfile {
+	id Integer required,
+	salutation String required maxlength(200),
+	firstName String required maxlength(200),
+	lastName String required maxlength(200),
+	/** Url of uploaded image */
+	profilePicture String maxlength(255),
+	phoneNumber String required maxlength(200),
+	userType String required maxlength(200),
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity UserSubscription {
+	id Integer required,
+	price Double required,
+	validUpto LocalDate required,
+	paymentGatewayToken String required maxlength(255),
+	nextRenewal LocalDate required,
+	createdAt Instant required,
+	updatedAt Instant required
+}
+
+entity UserCategoryMapping{
+	id Integer required
+}
+
+
+// Relations
+relationship ManyToOne {
+	AppFeatures{name required} to Localization
+}
+
+relationship ManyToOne {
+	Bonus{buyer required} to UserProfile
+}
+
+relationship ManyToOne {
+	Bonus{order required} to Order
+}
+
+relationship ManyToOne {
+	Cart{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	Cart{supplier required} to UserProfile
+}
+
+relationship ManyToOne {
+	Cart{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Category{name required} to Localization
+}
+
+relationship ManyToOne {
+	Category{description} to Localization
+}
+
+relationship ManyToOne {
+	Category{parent} to Category
+}
+
+relationship ManyToOne {
+	Commission{supplier required} to UserProfile
+}
+
+relationship ManyToOne {
+	Commission{order required} to Order
+}
+
+relationship ManyToOne {
+	Company{address} to Address
+}
+
+relationship ManyToOne {
+	Company{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Company{updatedBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	EmailTracking{receiver required} to UserProfile
+}
+
+relationship ManyToOne {
+	EmailTracking{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Enquiry{product required} to Category
+}
+
+relationship ManyToOne {
+	Enquiry{deliveryAddress required} to Address
+}
+
+relationship ManyToOne {
+	EnquiryDetails{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	EnquiryDetails{print required} to Category
+}
+
+relationship ManyToOne {
+	EnquiryDetails{finishing required} to Category
+}
+
+relationship ManyToOne {
+	EnquiryDetails{handling required} to Category
+}
+
+relationship ManyToOne {
+	EnquiryDetails{packaging required} to Category
+}
+
+relationship ManyToOne {
+	EnquiryDetails{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	EnquiryDetails{offer} to Offer
+}
+
+relationship ManyToOne {
+	EnquiryMaterial{enquiryDetails required} to EnquiryDetails
+}
+
+relationship ManyToOne {
+	EnquiryNote{enquiryDetails required} to EnquiryDetails
+}
+
+relationship ManyToOne {
+	Favourites{fromProfile required} to UserProfile
+}
+
+relationship ManyToOne {
+	Favourites{toProfile required} to UserProfile
+}
+
+relationship ManyToOne {
+	Message{from required} to UserProfile
+}
+
+relationship ManyToOne {
+	Message{to required} to UserProfile
+}
+
+relationship ManyToOne {
+	Message{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Message{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	Message{order required} to Order
+}
+
+relationship ManyToOne {
+	Message{offer required} to Offer
+}
+
+relationship ManyToOne {
+	Message{replyMessage} to Message
+}
+
+relationship ManyToOne {
+	MessageDeleteDetails{message required} to Message
+}
+
+relationship ManyToOne {
+	MessageDeleteDetails{deletedBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Notification{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	NotificationReceiver{notification required} to Notification
+}
+
+relationship ManyToOne {
+	NotificationReceiver{userProfile required} to UserProfile
+}
+
+relationship ManyToOne {
+	Offer{supplierEnquiry required} to SupplierEnquiryMapping
+}
+
+relationship ManyToOne {
+	Offer{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	Offer{updatedBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	OfferPrice{offer required} to Offer
+}
+
+relationship ManyToOne {
+	OfferPrice{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	OfferPrice{enquiryDetails required} to EnquiryDetails
+}
+
+relationship ManyToOne {
+	Order{offer required} to Offer
+}
+
+relationship ManyToOne {
+	Order{buyer required} to UserProfile
+}
+
+relationship ManyToOne {
+	Order{supplier required} to UserProfile
+}
+
+relationship ManyToOne {
+	Order{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	Order{enquiryDetails required} to EnquiryDetails
+}
+
+relationship ManyToOne {
+	PaymentDetails{userProfile} to UserProfile
+}
+
+relationship ManyToOne {
+	Rating{fromProfile required} to UserProfile
+}
+
+relationship ManyToOne {
+	Rating{toProfile required} to UserProfile
+}
+
+relationship ManyToOne {
+	Rating{order required} to Order
+}
+
+relationship ManyToOne {
+	SubscriptionPlan{name required} to Localization
+}
+
+relationship ManyToOne {
+	SubscriptionPlan{description required} to Localization
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	SubsriptionPlanFeatureMapping{subscriptionPlan required} to SubscriptionPlan{subsriptionPlanFeatureMapping}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	SubsriptionPlanFeatureMapping{appFeature required} to AppFeatures{subsriptionPlanFeatureMapping}
+}
+
+relationship ManyToOne {
+	SupplierEnquiryMapping{enquiry required} to Enquiry
+}
+
+relationship ManyToOne {
+	SupplierEnquiryMapping{supplier required} to UserProfile
+}
+
+relationship ManyToOne {
+	SupplierEnquiryMapping{createdBy required} to UserProfile
+}
+
+relationship ManyToOne {
+	TradingHours{company required} to Company
+}
+
+relationship ManyToOne {
+	TransactionHistory{subscriptionPlan required} to SubscriptionPlan
+}
+
+relationship ManyToOne {
+	TransactionHistory{userProfile required} to UserProfile
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	UserCategoryMapping{userProfile required} to UserProfile{userCategoryMapping}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	UserCategoryMapping{category required} to Category{userCategoryMapping}
+}
+
+relationship ManyToOne {
+	UserProfile{user required} to User
+}
+
+relationship ManyToOne {
+	UserProfile{company} to Company
+}
+
+relationship ManyToOne {
+	UserSubscription{subscriptionPlan required} to SubscriptionPlan
+}
+
+relationship ManyToOne {
+	UserSubscription{userProfile required} to UserProfile
+}
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+
