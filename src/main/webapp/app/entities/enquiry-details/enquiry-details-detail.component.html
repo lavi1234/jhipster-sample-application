@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="enquiryDetails">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.detail.title">Enquiry Details</span> {{ enquiryDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.version">Version</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.edition">Edition</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.edition }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.format">Format</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.format }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.documents">Documents</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.documents }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.deliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ enquiryDetails.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.enquiry">Enquiry</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.enquiryId">
+                        <a [routerLink]="['/enquiry', enquiryDetails.enquiryId, 'view']">{{ enquiryDetails.enquiryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.print">Print</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.printId">
+                        <a [routerLink]="['/category', enquiryDetails.printId, 'view']">{{ enquiryDetails.printId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.finishing">Finishing</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.finishingId">
+                        <a [routerLink]="['/category', enquiryDetails.finishingId, 'view']">{{ enquiryDetails.finishingId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.handling">Handling</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.handlingId">
+                        <a [routerLink]="['/category', enquiryDetails.handlingId, 'view']">{{ enquiryDetails.handlingId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.packaging">Packaging</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.packagingId">
+                        <a [routerLink]="['/category', enquiryDetails.packagingId, 'view']">{{ enquiryDetails.packagingId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.createdById">
+                        <a [routerLink]="['/user-profile', enquiryDetails.createdById, 'view']">{{ enquiryDetails.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiryDetails.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="enquiryDetails.offerId">
+                        <a [routerLink]="['/offer', enquiryDetails.offerId, 'view']">{{ enquiryDetails.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/enquiry-details', enquiryDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

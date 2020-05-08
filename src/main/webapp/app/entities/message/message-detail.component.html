@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="message">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.message.detail.title">Message</span> {{ message.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.subject">Subject</span></dt>
+                <dd>
+                    <span>{{ message.subject }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.message">Message</span></dt>
+                <dd>
+                    <span>{{ message.message }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ message.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.apiResponse">Api Response</span></dt>
+                <dd>
+                    <span>{{ message.apiResponse }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.discussionType">Discussion Type</span></dt>
+                <dd>
+                    <span>{{ message.discussionType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.readStatus">Read Status</span></dt>
+                <dd>
+                    <span>{{ message.readStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.from">From</span></dt>
+                <dd>
+                    <div *ngIf="message.fromId">
+                        <a [routerLink]="['/user-profile', message.fromId, 'view']">{{ message.fromId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.to">To</span></dt>
+                <dd>
+                    <div *ngIf="message.toId">
+                        <a [routerLink]="['/user-profile', message.toId, 'view']">{{ message.toId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="message.createdById">
+                        <a [routerLink]="['/user-profile', message.createdById, 'view']">{{ message.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.enquiry">Enquiry</span></dt>
+                <dd>
+                    <div *ngIf="message.enquiryId">
+                        <a [routerLink]="['/enquiry', message.enquiryId, 'view']">{{ message.enquiryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="message.orderId">
+                        <a [routerLink]="['/order', message.orderId, 'view']">{{ message.orderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="message.offerId">
+                        <a [routerLink]="['/offer', message.offerId, 'view']">{{ message.offerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.message.replyMessage">Reply Message</span></dt>
+                <dd>
+                    <div *ngIf="message.replyMessageId">
+                        <a [routerLink]="['/message', message.replyMessageId, 'view']">{{ message.replyMessageId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/message', message.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

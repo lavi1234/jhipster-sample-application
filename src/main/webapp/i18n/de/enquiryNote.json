@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "enquiryNote": {
+      "home": {
+        "title": "Enquiry Notes",
+        "createLabel": "Enquiry Note erstellen",
+        "createOrEditLabel": "Enquiry Note erstellen oder bearbeiten",
+        "notFound": "No Enquiry Notes found"
+      },
+      "created": "Enquiry Note erstellt mit ID {{ param }}",
+      "updated": "Enquiry Note aktualisiert mit ID {{ param }}",
+      "deleted": "Enquiry Note gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Enquiry Note {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Enquiry Note"
+      },
+      "note": "Note",
+      "createdAt": "Created At",
+      "enquiryDetails": "Enquiry Details"
+    }
+  }
+}

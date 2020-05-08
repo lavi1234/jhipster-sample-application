@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.company.detail.title">Company</span> {{ company.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.name">Name</span></dt>
+                <dd>
+                    <span>{{ company.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.email">Email</span></dt>
+                <dd>
+                    <span>{{ company.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.termsConditions">Terms Conditions</span></dt>
+                <dd>
+                    <span>{{ company.termsConditions }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.aboutUs">About Us</span></dt>
+                <dd>
+                    <span>{{ company.aboutUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.catalogue" [ngbTooltip]="'jhipsterSampleApplicationApp.company.help.catalogue' | translate">Catalogue</span></dt>
+                <dd>
+                    <span>{{ company.catalogue }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ company.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ company.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.address">Address</span></dt>
+                <dd>
+                    <div *ngIf="company.addressId">
+                        <a [routerLink]="['/address', company.addressId, 'view']">{{ company.addressId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="company.createdById">
+                        <a [routerLink]="['/user-profile', company.createdById, 'view']">{{ company.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.company.updatedBy">Updated By</span></dt>
+                <dd>
+                    <div *ngIf="company.updatedById">
+                        <a [routerLink]="['/user-profile', company.updatedById, 'view']">{{ company.updatedById }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.home.title">Supplier Enquiry Mappings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-supplier-enquiry-mapping" [routerLink]="['/supplier-enquiry-mapping/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.home.createLabel">
+            Create a new Supplier Enquiry Mapping
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="supplierEnquiryMappings?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.home.notFound">No supplierEnquiryMappings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="supplierEnquiryMappings?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.updatedAt">Updated At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enquiryId"><span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.enquiry">Enquiry</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierId"><span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.supplier">Supplier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="jhipsterSampleApplicationApp.supplierEnquiryMapping.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let supplierEnquiryMapping of supplierEnquiryMappings ;trackBy: trackId">
+                    <td><a [routerLink]="['/supplier-enquiry-mapping', supplierEnquiryMapping.id, 'view']">{{ supplierEnquiryMapping.id }}</a></td>
+                    <td>{{ supplierEnquiryMapping.createdAt | date:'medium' }}</td>
+                    <td>{{ supplierEnquiryMapping.updatedAt | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="supplierEnquiryMapping.enquiryId">
+                            <a [routerLink]="['/enquiry', supplierEnquiryMapping.enquiryId , 'view']" >{{ supplierEnquiryMapping.enquiryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierEnquiryMapping.supplierId">
+                            <a [routerLink]="['/user-profile', supplierEnquiryMapping.supplierId , 'view']" >{{ supplierEnquiryMapping.supplierId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierEnquiryMapping.createdById">
+                            <a [routerLink]="['/user-profile', supplierEnquiryMapping.createdById , 'view']" >{{ supplierEnquiryMapping.createdById }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/supplier-enquiry-mapping', supplierEnquiryMapping.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/supplier-enquiry-mapping', supplierEnquiryMapping.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(supplierEnquiryMapping)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="supplierEnquiryMappings?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

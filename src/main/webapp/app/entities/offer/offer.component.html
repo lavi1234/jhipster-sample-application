@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.offer.home.title">Offers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-offer" [routerLink]="['/offer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.offer.home.createLabel">
+            Create a new Offer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="offers?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.offer.home.notFound">No offers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="offers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validUpto"><span jhiTranslate="jhipsterSampleApplicationApp.offer.validUpto">Valid Upto</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhipsterSampleApplicationApp.offer.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.offer.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="jhipsterSampleApplicationApp.offer.updatedAt">Updated At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierEnquiryId"><span jhiTranslate="jhipsterSampleApplicationApp.offer.supplierEnquiry">Supplier Enquiry</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="jhipsterSampleApplicationApp.offer.createdBy">Created By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedById"><span jhiTranslate="jhipsterSampleApplicationApp.offer.updatedBy">Updated By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offer of offers ;trackBy: trackId">
+                    <td><a [routerLink]="['/offer', offer.id, 'view']">{{ offer.id }}</a></td>
+                    <td>{{ offer.validUpto | date:'mediumDate' }}</td>
+                    <td>{{ offer.status }}</td>
+                    <td>{{ offer.createdAt | date:'medium' }}</td>
+                    <td>{{ offer.updatedAt | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="offer.supplierEnquiryId">
+                            <a [routerLink]="['/supplier-enquiry-mapping', offer.supplierEnquiryId , 'view']" >{{ offer.supplierEnquiryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="offer.createdById">
+                            <a [routerLink]="['/user-profile', offer.createdById , 'view']" >{{ offer.createdById }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="offer.updatedById">
+                            <a [routerLink]="['/user-profile', offer.updatedById , 'view']" >{{ offer.updatedById }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/offer', offer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/offer', offer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(offer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="offers?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

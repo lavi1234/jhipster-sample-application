@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commissionReference">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.commissionReference.detail.title">Commission Reference</span> {{ commissionReference.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commissionReference.percentage">Percentage</span></dt>
+                <dd>
+                    <span>{{ commissionReference.percentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commissionReference.holdDays">Hold Days</span></dt>
+                <dd>
+                    <span>{{ commissionReference.holdDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commissionReference.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ commissionReference.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.commissionReference.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ commissionReference.updatedAt }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commission-reference', commissionReference.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

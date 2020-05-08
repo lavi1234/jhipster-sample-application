@@ -1,0 +1,61 @@
+{
+    "name": "TradingHours",
+    "fields": [
+        {
+            "fieldName": "day",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMinlength": "8",
+            "fieldValidateRulesMaxlength": "8",
+            "fieldValidateRulesPattern": "^(([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)$"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMinlength": "8",
+            "fieldValidateRulesMaxlength": "8",
+            "fieldValidateRulesPattern": "^(([0-1]\\d)|(2[0-3])):([0-5]\\d):([0-5]\\d)$"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "tradingHours",
+            "relationshipValidateRules": "required",
+            "relationshipName": "company",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508102800",
+    "entityTableName": "trading_hours",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

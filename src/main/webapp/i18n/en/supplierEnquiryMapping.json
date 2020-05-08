@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "supplierEnquiryMapping": {
+      "home": {
+        "title": "Supplier Enquiry Mappings",
+        "createLabel": "Create a new Supplier Enquiry Mapping",
+        "createOrEditLabel": "Create or edit a Supplier Enquiry Mapping",
+        "notFound": "No Supplier Enquiry Mappings found"
+      },
+      "created": "A new Supplier Enquiry Mapping is created with identifier {{ param }}",
+      "updated": "A Supplier Enquiry Mapping is updated with identifier {{ param }}",
+      "deleted": "A Supplier Enquiry Mapping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supplier Enquiry Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Supplier Enquiry Mapping"
+      },
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "enquiry": "Enquiry",
+      "supplier": "Supplier",
+      "createdBy": "Created By"
+    }
+  }
+}

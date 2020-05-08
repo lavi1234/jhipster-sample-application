@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="order">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.order.detail.title">Order</span> {{ order.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.price">Price</span></dt>
+                <dd>
+                    <span>{{ order.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{ order.deliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.status">Status</span></dt>
+                <dd>
+                    <span>{{ order.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.commissionDate">Commission Date</span></dt>
+                <dd>
+                    <span>{{ order.commissionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ order.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ order.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ order.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="order.offerId">
+                        <a [routerLink]="['/offer', order.offerId, 'view']">{{ order.offerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.buyer">Buyer</span></dt>
+                <dd>
+                    <div *ngIf="order.buyerId">
+                        <a [routerLink]="['/user-profile', order.buyerId, 'view']">{{ order.buyerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="order.supplierId">
+                        <a [routerLink]="['/user-profile', order.supplierId, 'view']">{{ order.supplierId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.enquiry">Enquiry</span></dt>
+                <dd>
+                    <div *ngIf="order.enquiryId">
+                        <a [routerLink]="['/enquiry', order.enquiryId, 'view']">{{ order.enquiryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.order.enquiryDetails">Enquiry Details</span></dt>
+                <dd>
+                    <div *ngIf="order.enquiryDetailsId">
+                        <a [routerLink]="['/enquiry-details', order.enquiryDetailsId, 'view']">{{ order.enquiryDetailsId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order', order.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

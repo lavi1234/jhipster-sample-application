@@ -1,0 +1,56 @@
+{
+    "name": "SupplierEnquiryMapping",
+    "fields": [
+        {
+            "fieldName": "createdAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "enquiry",
+            "otherEntityRelationshipName": "supplierEnquiryMapping",
+            "relationshipValidateRules": "required",
+            "relationshipName": "enquiry",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userProfile",
+            "otherEntityRelationshipName": "supplierEnquiryMapping",
+            "relationshipValidateRules": "required",
+            "relationshipName": "supplier",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userProfile",
+            "otherEntityRelationshipName": "supplierEnquiryMapping",
+            "relationshipValidateRules": "required",
+            "relationshipName": "createdBy",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508102700",
+    "entityTableName": "supplier_enquiry_mapping",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "userCategoryMapping": {
+      "home": {
+        "title": "User Category Mappings",
+        "createLabel": "User Category Mapping erstellen",
+        "createOrEditLabel": "User Category Mapping erstellen oder bearbeiten",
+        "notFound": "No User Category Mappings found"
+      },
+      "created": "User Category Mapping erstellt mit ID {{ param }}",
+      "updated": "User Category Mapping aktualisiert mit ID {{ param }}",
+      "deleted": "User Category Mapping gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll User Category Mapping {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "User Category Mapping"
+      },
+      "userProfile": "User Profile",
+      "category": "Category"
+    }
+  }
+}

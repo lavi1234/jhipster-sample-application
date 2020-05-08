@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userCategoryMapping">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.userCategoryMapping.detail.title">User Category Mapping</span> {{ userCategoryMapping.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userCategoryMapping.userProfile">User Profile</span></dt>
+                <dd>
+                    <span *ngFor="let userProfile of userCategoryMapping.userProfiles; let last = last">
+                        <a [routerLink]="['/user-profile', userProfile?.id, 'view']">{{ userProfile.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userCategoryMapping.category">Category</span></dt>
+                <dd>
+                    <span *ngFor="let category of userCategoryMapping.categories; let last = last">
+                        <a [routerLink]="['/category', category?.id, 'view']">{{ category.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-category-mapping', userCategoryMapping.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

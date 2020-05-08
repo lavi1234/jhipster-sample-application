@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.home.title">Transaction Histories</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-transaction-history" [routerLink]="['/transaction-history/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.home.createLabel">
+            Create a new Transaction History
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="transactionHistories?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.home.notFound">No transactionHistories found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="transactionHistories?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentGatewayToken"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.paymentGatewayToken">Payment Gateway Token</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentGatewayResponse"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.paymentGatewayResponse">Payment Gateway Response</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionPlanId"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.subscriptionPlan">Subscription Plan</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userProfileId"><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.userProfile">User Profile</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transactionHistory of transactionHistories ;trackBy: trackId">
+                    <td><a [routerLink]="['/transaction-history', transactionHistory.id, 'view']">{{ transactionHistory.id }}</a></td>
+                    <td>{{ transactionHistory.price }}</td>
+                    <td>{{ transactionHistory.createdAt | date:'medium' }}</td>
+                    <td>{{ transactionHistory.paymentGatewayToken }}</td>
+                    <td>{{ transactionHistory.paymentGatewayResponse }}</td>
+                    <td>{{ transactionHistory.status }}</td>
+                    <td>
+                        <div *ngIf="transactionHistory.subscriptionPlanId">
+                            <a [routerLink]="['/subscription-plan', transactionHistory.subscriptionPlanId , 'view']" >{{ transactionHistory.subscriptionPlanId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="transactionHistory.userProfileId">
+                            <a [routerLink]="['/user-profile', transactionHistory.userProfileId , 'view']" >{{ transactionHistory.userProfileId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/transaction-history', transactionHistory.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/transaction-history', transactionHistory.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(transactionHistory)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="transactionHistories?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="staticPages">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.detail.title">Static Pages</span> {{ staticPages.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.pageTitle">Page Title</span></dt>
+                <dd>
+                    <span>{{ staticPages.pageTitle }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.heading">Heading</span></dt>
+                <dd>
+                    <span>{{ staticPages.heading }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.description">Description</span></dt>
+                <dd>
+                    <span>{{ staticPages.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ staticPages.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ staticPages.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.staticPages.publish">Publish</span></dt>
+                <dd>
+                    <span>{{ staticPages.publish }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/static-pages', staticPages.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

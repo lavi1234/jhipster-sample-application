@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity EnquiryDetails.
+    -->
+    <changeSet id="20200508101000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="enquiry_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_enquiry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="enquiry"/>
+
+        <addForeignKeyConstraint baseColumnNames="print_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_print_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="finishing_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_finishing_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="handling_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_handling_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="packaging_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_packaging_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_created_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_profile"/>
+
+        <addForeignKeyConstraint baseColumnNames="offer_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details_offer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="offer"/>
+
+    </changeSet>
+</databaseChangeLog>

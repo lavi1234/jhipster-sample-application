@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bonusReference": {
+      "home": {
+        "title": "Bonus References",
+        "createLabel": "Bonus Reference erstellen",
+        "createOrEditLabel": "Bonus Reference erstellen oder bearbeiten",
+        "notFound": "No Bonus References found"
+      },
+      "created": "Bonus Reference erstellt mit ID {{ param }}",
+      "updated": "Bonus Reference aktualisiert mit ID {{ param }}",
+      "deleted": "Bonus Reference gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bonus Reference {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bonus Reference"
+      },
+      "percentage": "Percentage",
+      "holdDays": "Hold Days",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    }
+  }
+}

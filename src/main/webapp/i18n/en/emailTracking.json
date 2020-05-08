@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "emailTracking": {
+      "home": {
+        "title": "Email Trackings",
+        "createLabel": "Create a new Email Tracking",
+        "createOrEditLabel": "Create or edit a Email Tracking",
+        "notFound": "No Email Trackings found"
+      },
+      "created": "A new Email Tracking is created with identifier {{ param }}",
+      "updated": "A Email Tracking is updated with identifier {{ param }}",
+      "deleted": "A Email Tracking is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Email Tracking {{ id }}?"
+      },
+      "detail": {
+        "title": "Email Tracking"
+      },
+      "toEmail": "To Email",
+      "subject": "Subject",
+      "message": "Message",
+      "type": "Type",
+      "createdAt": "Created At",
+      "receiver": "Receiver",
+      "createdBy": "Created By"
+    }
+  }
+}

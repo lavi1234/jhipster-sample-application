@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "commissionReference": {
+      "home": {
+        "title": "Commission References",
+        "createLabel": "Commission Reference erstellen",
+        "createOrEditLabel": "Commission Reference erstellen oder bearbeiten",
+        "notFound": "No Commission References found"
+      },
+      "created": "Commission Reference erstellt mit ID {{ param }}",
+      "updated": "Commission Reference aktualisiert mit ID {{ param }}",
+      "deleted": "Commission Reference gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Commission Reference {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Commission Reference"
+      },
+      "percentage": "Percentage",
+      "holdDays": "Hold Days",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    }
+  }
+}

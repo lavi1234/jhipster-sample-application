@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subsriptionPlanFeature">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.subsriptionPlanFeature.detail.title">Subsription Plan Feature</span> {{ subsriptionPlanFeature.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subsriptionPlanFeature.subscriptionPlan">Subscription Plan</span></dt>
+                <dd>
+                    <span *ngFor="let subscriptionPlan of subsriptionPlanFeature.subscriptionPlans; let last = last">
+                        <a [routerLink]="['/subscription-plan', subscriptionPlan?.id, 'view']">{{ subscriptionPlan.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.subsriptionPlanFeature.appFeature">App Feature</span></dt>
+                <dd>
+                    <span *ngFor="let appFeature of subsriptionPlanFeature.appFeatures; let last = last">
+                        <a [routerLink]="['/app-features', appFeature?.id, 'view']">{{ appFeature.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subsription-plan-feature', subsriptionPlanFeature.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+{
+    "name": "OfferPrice",
+    "fields": [
+        {
+            "fieldName": "price",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "finishingDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "offer",
+            "otherEntityRelationshipName": "offerPrice",
+            "relationshipValidateRules": "required",
+            "relationshipName": "offer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "enquiry",
+            "otherEntityRelationshipName": "offerPrice",
+            "relationshipValidateRules": "required",
+            "relationshipName": "enquiry",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "enquiryDetails",
+            "otherEntityRelationshipName": "offerPrice",
+            "relationshipValidateRules": "required",
+            "relationshipName": "enquiryDetails",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508102000",
+    "entityTableName": "offer_price",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

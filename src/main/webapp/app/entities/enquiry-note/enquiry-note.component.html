@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.home.title">Enquiry Notes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-enquiry-note" [routerLink]="['/enquiry-note/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.home.createLabel">
+            Create a new Enquiry Note
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="enquiryNotes?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.home.notFound">No enquiryNotes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="enquiryNotes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="note"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.note">Note</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enquiryDetailsId"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryNote.enquiryDetails">Enquiry Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enquiryNote of enquiryNotes ;trackBy: trackId">
+                    <td><a [routerLink]="['/enquiry-note', enquiryNote.id, 'view']">{{ enquiryNote.id }}</a></td>
+                    <td>{{ enquiryNote.note }}</td>
+                    <td>{{ enquiryNote.createdAt | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="enquiryNote.enquiryDetailsId">
+                            <a [routerLink]="['/enquiry-details', enquiryNote.enquiryDetailsId , 'view']" >{{ enquiryNote.enquiryDetailsId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/enquiry-note', enquiryNote.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/enquiry-note', enquiryNote.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(enquiryNote)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="enquiryNotes?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
