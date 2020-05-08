@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rating">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.rating.detail.title">Rating</span> {{ rating.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.rating">Rating</span></dt>
+                <dd>
+                    <span>{{ rating.rating }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ rating.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ rating.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.fromProfile">From Profile</span></dt>
+                <dd>
+                    <div *ngIf="rating.fromProfileId">
+                        <a [routerLink]="['/user-profile', rating.fromProfileId, 'view']">{{ rating.fromProfileId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.toProfile">To Profile</span></dt>
+                <dd>
+                    <div *ngIf="rating.toProfileId">
+                        <a [routerLink]="['/user-profile', rating.toProfileId, 'view']">{{ rating.toProfileId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.rating.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="rating.orderId">
+                        <a [routerLink]="['/order', rating.orderId, 'view']">{{ rating.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rating', rating.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

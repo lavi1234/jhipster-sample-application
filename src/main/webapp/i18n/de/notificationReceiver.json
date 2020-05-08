@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "notificationReceiver": {
+      "home": {
+        "title": "Notification Receivers",
+        "createLabel": "Notification Receiver erstellen",
+        "createOrEditLabel": "Notification Receiver erstellen oder bearbeiten",
+        "notFound": "No Notification Receivers found"
+      },
+      "created": "Notification Receiver erstellt mit ID {{ param }}",
+      "updated": "Notification Receiver aktualisiert mit ID {{ param }}",
+      "deleted": "Notification Receiver gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Notification Receiver {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Notification Receiver"
+      },
+      "readStatus": "Read Status",
+      "updatedAt": "Updated At",
+      "notification": "Notification",
+      "userProfile": "User Profile"
+    }
+  }
+}

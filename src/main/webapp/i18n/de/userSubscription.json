@@ -1,0 +1,29 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "userSubscription": {
+      "home": {
+        "title": "User Subscriptions",
+        "createLabel": "User Subscription erstellen",
+        "createOrEditLabel": "User Subscription erstellen oder bearbeiten",
+        "notFound": "No User Subscriptions found"
+      },
+      "created": "User Subscription erstellt mit ID {{ param }}",
+      "updated": "User Subscription aktualisiert mit ID {{ param }}",
+      "deleted": "User Subscription gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll User Subscription {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "User Subscription"
+      },
+      "price": "Price",
+      "validUpto": "Valid Upto",
+      "paymentGatewayToken": "Payment Gateway Token",
+      "nextRenewal": "Next Renewal",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "subscriptionPlan": "Subscription Plan",
+      "userProfile": "User Profile"
+    }
+  }
+}

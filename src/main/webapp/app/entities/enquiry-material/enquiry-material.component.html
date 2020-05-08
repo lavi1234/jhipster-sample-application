@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.home.title">Enquiry Materials</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-enquiry-material" [routerLink]="['/enquiry-material/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.home.createLabel">
+            Create a new Enquiry Material
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="enquiryMaterials?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.home.notFound">No enquiryMaterials found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="enquiryMaterials?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dimension"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.dimension">Dimension</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="materialId"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.materialId">Material Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="color"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.color">Color</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enquiryDetailsId"><span jhiTranslate="jhipsterSampleApplicationApp.enquiryMaterial.enquiryDetails">Enquiry Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enquiryMaterial of enquiryMaterials ;trackBy: trackId">
+                    <td><a [routerLink]="['/enquiry-material', enquiryMaterial.id, 'view']">{{ enquiryMaterial.id }}</a></td>
+                    <td>{{ enquiryMaterial.name }}</td>
+                    <td>{{ enquiryMaterial.dimension }}</td>
+                    <td>{{ enquiryMaterial.materialId }}</td>
+                    <td>{{ enquiryMaterial.color }}</td>
+                    <td>{{ enquiryMaterial.comments }}</td>
+                    <td>
+                        <div *ngIf="enquiryMaterial.enquiryDetailsId">
+                            <a [routerLink]="['/enquiry-details', enquiryMaterial.enquiryDetailsId , 'view']" >{{ enquiryMaterial.enquiryDetailsId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/enquiry-material', enquiryMaterial.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/enquiry-material', enquiryMaterial.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(enquiryMaterial)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="enquiryMaterials?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

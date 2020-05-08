@@ -1,0 +1,152 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-user-subscription-heading" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.home.createOrEditLabel">Create or edit a User Subscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                    <div *ngIf="editForm.get('price')!.invalid && (editForm.get('price')!.dirty || editForm.get('price')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('price')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('price')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.validUpto" for="field_validUpto">Valid Upto</label>
+                    <div class="input-group">
+                        <input id="field_validUpto" type="text" class="form-control" name="validUpto" ngbDatepicker #validUptoDp="ngbDatepicker" formControlName="validUpto"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="validUptoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('validUpto')!.invalid && (editForm.get('validUpto')!.dirty || editForm.get('validUpto')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validUpto')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.paymentGatewayToken" for="field_paymentGatewayToken">Payment Gateway Token</label>
+                    <input type="text" class="form-control" name="paymentGatewayToken" id="field_paymentGatewayToken"
+                           formControlName="paymentGatewayToken"/>
+                    <div *ngIf="editForm.get('paymentGatewayToken')!.invalid && (editForm.get('paymentGatewayToken')!.dirty || editForm.get('paymentGatewayToken')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('paymentGatewayToken')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('paymentGatewayToken')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.nextRenewal" for="field_nextRenewal">Next Renewal</label>
+                    <div class="input-group">
+                        <input id="field_nextRenewal" type="text" class="form-control" name="nextRenewal" ngbDatepicker #nextRenewalDp="ngbDatepicker" formControlName="nextRenewal"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="nextRenewalDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('nextRenewal')!.invalid && (editForm.get('nextRenewal')!.dirty || editForm.get('nextRenewal')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nextRenewal')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.createdAt" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdAt')!.invalid && (editForm.get('createdAt')!.dirty || editForm.get('createdAt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdAt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdAt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.updatedAt" for="field_updatedAt">Updated At</label>
+                    <div class="d-flex">
+                        <input id="field_updatedAt" type="datetime-local" class="form-control" name="updatedAt" formControlName="updatedAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('updatedAt')!.invalid && (editForm.get('updatedAt')!.dirty || editForm.get('updatedAt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updatedAt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('updatedAt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.subscriptionPlan" for="field_subscriptionPlan">Subscription Plan</label>
+                    <select class="form-control" id="field_subscriptionPlan" name="subscriptionPlan" formControlName="subscriptionPlanId">
+                        <option *ngIf="!editForm.get('subscriptionPlanId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="subscriptionPlanOption.id" *ngFor="let subscriptionPlanOption of subscriptionplans; trackBy: trackById">{{ subscriptionPlanOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('subscriptionPlanId')!.invalid && (editForm.get('subscriptionPlanId')!.dirty || editForm.get('subscriptionPlanId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('subscriptionPlanId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.userSubscription.userProfile" for="field_userProfile">User Profile</label>
+                    <select class="form-control" id="field_userProfile" name="userProfile" formControlName="userProfileId">
+                        <option *ngIf="!editForm.get('userProfileId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userProfileOption.id" *ngFor="let userProfileOption of userprofiles; trackBy: trackById">{{ userProfileOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('userProfileId')!.invalid && (editForm.get('userProfileId')!.dirty || editForm.get('userProfileId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('userProfileId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

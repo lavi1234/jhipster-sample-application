@@ -1,0 +1,36 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "enquiryDetails": {
+      "home": {
+        "title": "Enquiry Details",
+        "createLabel": "Enquiry Details erstellen",
+        "createOrEditLabel": "Enquiry Details erstellen oder bearbeiten",
+        "notFound": "No Enquiry Details found"
+      },
+      "created": "Enquiry Details erstellt mit ID {{ param }}",
+      "updated": "Enquiry Details aktualisiert mit ID {{ param }}",
+      "deleted": "Enquiry Details gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Enquiry Details {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Enquiry Details"
+      },
+      "version": "Version",
+      "edition": "Edition",
+      "format": "Format",
+      "documents": "Documents",
+      "deliveryDate": "Delivery Date",
+      "remarks": "Remarks",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "enquiry": "Enquiry",
+      "print": "Print",
+      "finishing": "Finishing",
+      "handling": "Handling",
+      "packaging": "Packaging",
+      "createdBy": "Created By",
+      "offer": "Offer"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.order.home.title">Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order" [routerLink]="['/order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.order.home.createLabel">
+            Create a new Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orders?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.order.home.notFound">No orders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="jhipsterSampleApplicationApp.order.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryDate"><span jhiTranslate="jhipsterSampleApplicationApp.order.deliveryDate">Delivery Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhipsterSampleApplicationApp.order.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commissionDate"><span jhiTranslate="jhipsterSampleApplicationApp.order.commissionDate">Commission Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="jhipsterSampleApplicationApp.order.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="jhipsterSampleApplicationApp.order.updatedAt">Updated At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="jhipsterSampleApplicationApp.order.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerId"><span jhiTranslate="jhipsterSampleApplicationApp.order.offer">Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="buyerId"><span jhiTranslate="jhipsterSampleApplicationApp.order.buyer">Buyer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierId"><span jhiTranslate="jhipsterSampleApplicationApp.order.supplier">Supplier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enquiryId"><span jhiTranslate="jhipsterSampleApplicationApp.order.enquiry">Enquiry</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enquiryDetailsId"><span jhiTranslate="jhipsterSampleApplicationApp.order.enquiryDetails">Enquiry Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders ;trackBy: trackId">
+                    <td><a [routerLink]="['/order', order.id, 'view']">{{ order.id }}</a></td>
+                    <td>{{ order.price }}</td>
+                    <td>{{ order.deliveryDate | date:'mediumDate' }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.commissionDate | date:'mediumDate' }}</td>
+                    <td>{{ order.createdAt | date:'medium' }}</td>
+                    <td>{{ order.updatedAt | date:'medium' }}</td>
+                    <td>{{ order.remarks }}</td>
+                    <td>
+                        <div *ngIf="order.offerId">
+                            <a [routerLink]="['/offer', order.offerId , 'view']" >{{ order.offerId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.buyerId">
+                            <a [routerLink]="['/user-profile', order.buyerId , 'view']" >{{ order.buyerId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.supplierId">
+                            <a [routerLink]="['/user-profile', order.supplierId , 'view']" >{{ order.supplierId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.enquiryId">
+                            <a [routerLink]="['/enquiry', order.enquiryId , 'view']" >{{ order.enquiryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="order.enquiryDetailsId">
+                            <a [routerLink]="['/enquiry-details', order.enquiryDetailsId , 'view']" >{{ order.enquiryDetailsId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(order)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="orders?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

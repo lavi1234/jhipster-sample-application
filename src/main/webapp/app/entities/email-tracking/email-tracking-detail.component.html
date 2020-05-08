@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emailTracking">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.detail.title">Email Tracking</span> {{ emailTracking.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.toEmail">To Email</span></dt>
+                <dd>
+                    <span>{{ emailTracking.toEmail }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.subject">Subject</span></dt>
+                <dd>
+                    <span>{{ emailTracking.subject }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.message">Message</span></dt>
+                <dd>
+                    <span>{{ emailTracking.message }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.type">Type</span></dt>
+                <dd>
+                    <span>{{ emailTracking.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ emailTracking.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.receiver">Receiver</span></dt>
+                <dd>
+                    <div *ngIf="emailTracking.receiverId">
+                        <a [routerLink]="['/user-profile', emailTracking.receiverId, 'view']">{{ emailTracking.receiverId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.emailTracking.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="emailTracking.createdById">
+                        <a [routerLink]="['/user-profile', emailTracking.createdById, 'view']">{{ emailTracking.createdById }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/email-tracking', emailTracking.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

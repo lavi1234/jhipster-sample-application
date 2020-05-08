@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "subsriptionPlanFeature": {
+      "home": {
+        "title": "Subsription Plan Features",
+        "createLabel": "Subsription Plan Feature erstellen",
+        "createOrEditLabel": "Subsription Plan Feature erstellen oder bearbeiten",
+        "notFound": "No Subsription Plan Features found"
+      },
+      "created": "Subsription Plan Feature erstellt mit ID {{ param }}",
+      "updated": "Subsription Plan Feature aktualisiert mit ID {{ param }}",
+      "deleted": "Subsription Plan Feature gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Subsription Plan Feature {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Subsription Plan Feature"
+      },
+      "subscriptionPlan": "Subscription Plan",
+      "appFeature": "App Feature"
+    }
+  }
+}

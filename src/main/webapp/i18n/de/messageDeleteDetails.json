@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "messageDeleteDetails": {
+      "home": {
+        "title": "Message Delete Details",
+        "createLabel": "Message Delete Details erstellen",
+        "createOrEditLabel": "Message Delete Details erstellen oder bearbeiten",
+        "notFound": "No Message Delete Details found"
+      },
+      "created": "Message Delete Details erstellt mit ID {{ param }}",
+      "updated": "Message Delete Details aktualisiert mit ID {{ param }}",
+      "deleted": "Message Delete Details gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Message Delete Details {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Message Delete Details"
+      },
+      "deletedAt": "Deleted At",
+      "message": "Message",
+      "deletedBy": "Deleted By"
+    }
+  }
+}

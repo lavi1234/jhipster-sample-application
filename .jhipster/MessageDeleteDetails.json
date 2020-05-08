@@ -1,0 +1,41 @@
+{
+    "name": "MessageDeleteDetails",
+    "fields": [
+        {
+            "fieldName": "deletedAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "messageDeleteDetails",
+            "relationshipValidateRules": "required",
+            "relationshipName": "message",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userProfile",
+            "otherEntityRelationshipName": "messageDeleteDetails",
+            "relationshipValidateRules": "required",
+            "relationshipName": "deletedBy",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508101600",
+    "entityTableName": "message_delete_details",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

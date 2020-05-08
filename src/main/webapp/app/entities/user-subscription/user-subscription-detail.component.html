@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userSubscription">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.detail.title">User Subscription</span> {{ userSubscription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.price">Price</span></dt>
+                <dd>
+                    <span>{{ userSubscription.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.validUpto">Valid Upto</span></dt>
+                <dd>
+                    <span>{{ userSubscription.validUpto }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.paymentGatewayToken">Payment Gateway Token</span></dt>
+                <dd>
+                    <span>{{ userSubscription.paymentGatewayToken }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.nextRenewal">Next Renewal</span></dt>
+                <dd>
+                    <span>{{ userSubscription.nextRenewal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ userSubscription.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ userSubscription.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.subscriptionPlan">Subscription Plan</span></dt>
+                <dd>
+                    <div *ngIf="userSubscription.subscriptionPlanId">
+                        <a [routerLink]="['/subscription-plan', userSubscription.subscriptionPlanId, 'view']">{{ userSubscription.subscriptionPlanId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.userSubscription.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="userSubscription.userProfileId">
+                        <a [routerLink]="['/user-profile', userSubscription.userProfileId, 'view']">{{ userSubscription.userProfileId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-subscription', userSubscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

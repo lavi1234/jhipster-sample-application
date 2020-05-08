@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "tradingHours": {
+      "home": {
+        "title": "Trading Hours",
+        "createLabel": "Trading Hours erstellen",
+        "createOrEditLabel": "Trading Hours erstellen oder bearbeiten",
+        "notFound": "No Trading Hours found"
+      },
+      "created": "Trading Hours erstellt mit ID {{ param }}",
+      "updated": "Trading Hours aktualisiert mit ID {{ param }}",
+      "deleted": "Trading Hours gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Trading Hours {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Trading Hours"
+      },
+      "day": "Day",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "company": "Company"
+    }
+  }
+}

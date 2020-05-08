@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "Order erstellen",
+        "createOrEditLabel": "Order erstellen oder bearbeiten",
+        "notFound": "No Orders found"
+      },
+      "created": "Order erstellt mit ID {{ param }}",
+      "updated": "Order aktualisiert mit ID {{ param }}",
+      "deleted": "Order gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Order {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "price": "Price",
+      "deliveryDate": "Delivery Date",
+      "status": "Status",
+      "commissionDate": "Commission Date",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "remarks": "Remarks",
+      "offer": "Offer",
+      "buyer": "Buyer",
+      "supplier": "Supplier",
+      "enquiry": "Enquiry",
+      "enquiryDetails": "Enquiry Details"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "enquiry": {
+      "home": {
+        "title": "Enquiries",
+        "createLabel": "Create a new Enquiry",
+        "createOrEditLabel": "Create or edit a Enquiry",
+        "notFound": "No Enquiries found"
+      },
+      "created": "A new Enquiry is created with identifier {{ param }}",
+      "updated": "A Enquiry is updated with identifier {{ param }}",
+      "deleted": "A Enquiry is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Enquiry {{ id }}?"
+      },
+      "detail": {
+        "title": "Enquiry"
+      },
+      "description": "Description",
+      "deliveryTerms": "Delivery Terms",
+      "offerTaxtUntil": "Offer Taxt Until",
+      "status": "Status",
+      "product": "Product",
+      "deliveryAddress": "Delivery Address"
+    }
+  }
+}

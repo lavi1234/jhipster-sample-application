@@ -1,0 +1,35 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "userProfile": {
+      "home": {
+        "title": "User Profiles",
+        "createLabel": "User Profile erstellen",
+        "createOrEditLabel": "User Profile erstellen oder bearbeiten",
+        "notFound": "No User Profiles found"
+      },
+      "created": "User Profile erstellt mit ID {{ param }}",
+      "updated": "User Profile aktualisiert mit ID {{ param }}",
+      "deleted": "User Profile gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll User Profile {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "User Profile"
+      },
+      "salutation": "Salutation",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "profilePicture": "Profile Picture",
+      "phoneNumber": "Phone Number",
+      "userType": "User Type",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "user": "User",
+      "company": "Company",
+      "userCategoryMapping": "User Category Mapping",
+      "help": {
+        "profilePicture": "Url of uploaded image"
+      }
+    }
+  }
+}

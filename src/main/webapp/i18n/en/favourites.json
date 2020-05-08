@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "favourites": {
+      "home": {
+        "title": "Favourites",
+        "createLabel": "Create a new Favourites",
+        "createOrEditLabel": "Create or edit a Favourites",
+        "notFound": "No Favourites found"
+      },
+      "created": "A new Favourites is created with identifier {{ param }}",
+      "updated": "A Favourites is updated with identifier {{ param }}",
+      "deleted": "A Favourites is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Favourites {{ id }}?"
+      },
+      "detail": {
+        "title": "Favourites"
+      },
+      "createdAt": "Created At",
+      "remarks": "Remarks",
+      "fromProfile": "From Profile",
+      "toProfile": "To Profile"
+    }
+  }
+}

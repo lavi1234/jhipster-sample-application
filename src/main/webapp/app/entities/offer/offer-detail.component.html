@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offer">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.offer.detail.title">Offer</span> {{ offer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.validUpto">Valid Upto</span></dt>
+                <dd>
+                    <span>{{ offer.validUpto }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.status">Status</span></dt>
+                <dd>
+                    <span>{{ offer.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ offer.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ offer.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.supplierEnquiry">Supplier Enquiry</span></dt>
+                <dd>
+                    <div *ngIf="offer.supplierEnquiryId">
+                        <a [routerLink]="['/supplier-enquiry-mapping', offer.supplierEnquiryId, 'view']">{{ offer.supplierEnquiryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.createdBy">Created By</span></dt>
+                <dd>
+                    <div *ngIf="offer.createdById">
+                        <a [routerLink]="['/user-profile', offer.createdById, 'view']">{{ offer.createdById }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.offer.updatedBy">Updated By</span></dt>
+                <dd>
+                    <div *ngIf="offer.updatedById">
+                        <a [routerLink]="['/user-profile', offer.updatedById, 'view']">{{ offer.updatedById }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer', offer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

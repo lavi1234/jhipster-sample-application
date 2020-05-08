@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notificationReceiver">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.notificationReceiver.detail.title">Notification Receiver</span> {{ notificationReceiver.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.notificationReceiver.readStatus">Read Status</span></dt>
+                <dd>
+                    <span>{{ notificationReceiver.readStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.notificationReceiver.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ notificationReceiver.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.notificationReceiver.notification">Notification</span></dt>
+                <dd>
+                    <div *ngIf="notificationReceiver.notificationId">
+                        <a [routerLink]="['/notification', notificationReceiver.notificationId, 'view']">{{ notificationReceiver.notificationId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.notificationReceiver.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="notificationReceiver.userProfileId">
+                        <a [routerLink]="['/user-profile', notificationReceiver.userProfileId, 'view']">{{ notificationReceiver.userProfileId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notification-receiver', notificationReceiver.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

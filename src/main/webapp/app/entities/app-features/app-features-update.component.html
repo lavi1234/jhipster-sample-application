@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-app-features-heading" jhiTranslate="jhipsterSampleApplicationApp.appFeatures.home.createOrEditLabel">Create or edit a App Features</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.appFeatures.menuSortNumber" for="field_menuSortNumber">Menu Sort Number</label>
+                    <input type="number" class="form-control" name="menuSortNumber" id="field_menuSortNumber"
+                           formControlName="menuSortNumber"/>
+                    <div *ngIf="editForm.get('menuSortNumber')!.invalid && (editForm.get('menuSortNumber')!.dirty || editForm.get('menuSortNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('menuSortNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('menuSortNumber')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.appFeatures.name" for="field_name">Name</label>
+                    <select class="form-control" id="field_name" name="name" formControlName="nameId">
+                        <option *ngIf="!editForm.get('nameId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="localizationOption.id" *ngFor="let localizationOption of localizations; trackBy: trackById">{{ localizationOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('nameId')!.invalid && (editForm.get('nameId')!.dirty || editForm.get('nameId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('nameId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

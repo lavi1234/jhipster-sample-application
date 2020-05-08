@@ -1,0 +1,41 @@
+{
+    "name": "AppFeatures",
+    "fields": [
+        {
+            "fieldName": "menuSortNumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "localization",
+            "otherEntityRelationshipName": "appFeatures",
+            "relationshipValidateRules": "required",
+            "relationshipName": "name",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "subsriptionPlanFeature",
+            "otherEntityRelationshipName": "appFeature",
+            "relationshipName": "subsriptionPlanFeature",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200508100000",
+    "entityTableName": "app_features",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

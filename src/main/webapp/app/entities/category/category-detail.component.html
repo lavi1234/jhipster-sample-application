@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="category">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.category.detail.title">Category</span> {{ category.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{ category.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ category.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ category.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.name">Name</span></dt>
+                <dd>
+                    <div *ngIf="category.nameId">
+                        <a [routerLink]="['/localization', category.nameId, 'view']">{{ category.nameId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.description">Description</span></dt>
+                <dd>
+                    <div *ngIf="category.descriptionId">
+                        <a [routerLink]="['/localization', category.descriptionId, 'view']">{{ category.descriptionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.category.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="category.parentId">
+                        <a [routerLink]="['/category', category.parentId, 'view']">{{ category.parentId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/category', category.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

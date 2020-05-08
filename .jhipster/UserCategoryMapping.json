@@ -1,0 +1,35 @@
+{
+    "name": "UserCategoryMapping",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "userProfile",
+            "otherEntityRelationshipName": "userCategoryMapping",
+            "relationshipValidateRules": "required",
+            "relationshipName": "userProfile",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "userCategoryMapping",
+            "relationshipValidateRules": "required",
+            "relationshipName": "category",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200508103300",
+    "entityTableName": "user_category_mapping",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

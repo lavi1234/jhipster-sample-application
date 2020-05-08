@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity AppFeatures.
+    -->
+    <changeSet id="20200508100000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="name_id"
+                                 baseTableName="app_features"
+                                 constraintName="fk_app_features_name_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="localization"/>
+
+    </changeSet>
+</databaseChangeLog>
