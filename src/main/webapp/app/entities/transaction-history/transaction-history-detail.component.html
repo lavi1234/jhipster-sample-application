@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transactionHistory">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.detail.title">Transaction History</span> {{ transactionHistory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.price">Price</span></dt>
+                <dd>
+                    <span>{{ transactionHistory.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ transactionHistory.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.paymentGatewayToken">Payment Gateway Token</span></dt>
+                <dd>
+                    <span>{{ transactionHistory.paymentGatewayToken }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.paymentGatewayResponse">Payment Gateway Response</span></dt>
+                <dd>
+                    <span>{{ transactionHistory.paymentGatewayResponse }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.status">Status</span></dt>
+                <dd>
+                    <span>{{ transactionHistory.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.subscriptionPlan">Subscription Plan</span></dt>
+                <dd>
+                    <div *ngIf="transactionHistory.subscriptionPlanId">
+                        <a [routerLink]="['/subscription-plan', transactionHistory.subscriptionPlanId, 'view']">{{ transactionHistory.subscriptionPlanId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.transactionHistory.userProfile">User Profile</span></dt>
+                <dd>
+                    <div *ngIf="transactionHistory.userProfileId">
+                        <a [routerLink]="['/user-profile', transactionHistory.userProfileId, 'view']">{{ transactionHistory.userProfileId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transaction-history', transactionHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

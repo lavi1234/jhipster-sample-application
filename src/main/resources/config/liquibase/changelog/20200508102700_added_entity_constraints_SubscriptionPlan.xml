@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity SubscriptionPlan.
+    -->
+    <changeSet id="20200508102700-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="name_id"
+                                 baseTableName="subscription_plan"
+                                 constraintName="fk_subscription_plan_name_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="localization"/>
+
+        <addForeignKeyConstraint baseColumnNames="description_id"
+                                 baseTableName="subscription_plan"
+                                 constraintName="fk_subscription_plan_description_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="localization"/>
+
+    </changeSet>
+</databaseChangeLog>

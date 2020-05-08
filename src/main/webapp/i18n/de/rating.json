@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "rating": {
+      "home": {
+        "title": "Ratings",
+        "createLabel": "Rating erstellen",
+        "createOrEditLabel": "Rating erstellen oder bearbeiten",
+        "notFound": "No Ratings found"
+      },
+      "created": "Rating erstellt mit ID {{ param }}",
+      "updated": "Rating aktualisiert mit ID {{ param }}",
+      "deleted": "Rating gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Rating {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Rating"
+      },
+      "rating": "Rating",
+      "createdAt": "Created At",
+      "remarks": "Remarks",
+      "fromProfile": "From Profile",
+      "toProfile": "To Profile",
+      "order": "Order"
+    }
+  }
+}

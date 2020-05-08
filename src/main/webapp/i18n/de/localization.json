@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "localization": {
+      "home": {
+        "title": "Localizations",
+        "createLabel": "Localization erstellen",
+        "createOrEditLabel": "Localization erstellen oder bearbeiten",
+        "notFound": "No Localizations found"
+      },
+      "created": "Localization erstellt mit ID {{ param }}",
+      "updated": "Localization aktualisiert mit ID {{ param }}",
+      "deleted": "Localization gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Localization {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Localization"
+      },
+      "labelEn": "Label En",
+      "labelDe": "Label De"
+    }
+  }
+}

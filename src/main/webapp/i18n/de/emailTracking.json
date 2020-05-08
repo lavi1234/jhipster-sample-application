@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "emailTracking": {
+      "home": {
+        "title": "Email Trackings",
+        "createLabel": "Email Tracking erstellen",
+        "createOrEditLabel": "Email Tracking erstellen oder bearbeiten",
+        "notFound": "No Email Trackings found"
+      },
+      "created": "Email Tracking erstellt mit ID {{ param }}",
+      "updated": "Email Tracking aktualisiert mit ID {{ param }}",
+      "deleted": "Email Tracking gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Email Tracking {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Email Tracking"
+      },
+      "toEmail": "To Email",
+      "subject": "Subject",
+      "message": "Message",
+      "type": "Type",
+      "createdAt": "Created At",
+      "receiver": "Receiver",
+      "createdBy": "Created By"
+    }
+  }
+}

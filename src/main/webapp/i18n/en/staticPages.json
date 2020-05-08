@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "staticPages": {
+      "home": {
+        "title": "Static Pages",
+        "createLabel": "Create a new Static Pages",
+        "createOrEditLabel": "Create or edit a Static Pages",
+        "notFound": "No Static Pages found"
+      },
+      "created": "A new Static Pages is created with identifier {{ param }}",
+      "updated": "A Static Pages is updated with identifier {{ param }}",
+      "deleted": "A Static Pages is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Static Pages {{ id }}?"
+      },
+      "detail": {
+        "title": "Static Pages"
+      },
+      "pageTitle": "Page Title",
+      "heading": "Heading",
+      "description": "Description",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "publish": "Publish"
+    }
+  }
+}

@@ -1,0 +1,197 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-message-heading" jhiTranslate="jhipsterSampleApplicationApp.message.home.createOrEditLabel">Create or edit a Message</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.subject" for="field_subject">Subject</label>
+                    <input type="text" class="form-control" name="subject" id="field_subject"
+                           formControlName="subject"/>
+                    <div *ngIf="editForm.get('subject')!.invalid && (editForm.get('subject')!.dirty || editForm.get('subject')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subject')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('subject')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.message" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                           formControlName="message"/>
+                    <div *ngIf="editForm.get('message')!.invalid && (editForm.get('message')!.dirty || editForm.get('message')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('message')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.createdAt" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdAt')!.invalid && (editForm.get('createdAt')!.dirty || editForm.get('createdAt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdAt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdAt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.apiResponse" for="field_apiResponse">Api Response</label>
+                    <input type="text" class="form-control" name="apiResponse" id="field_apiResponse"
+                           formControlName="apiResponse"/>
+                    <div *ngIf="editForm.get('apiResponse')!.invalid && (editForm.get('apiResponse')!.dirty || editForm.get('apiResponse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apiResponse')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.discussionType" for="field_discussionType">Discussion Type</label>
+                    <input type="text" class="form-control" name="discussionType" id="field_discussionType"
+                           formControlName="discussionType"/>
+                    <div *ngIf="editForm.get('discussionType')!.invalid && (editForm.get('discussionType')!.dirty || editForm.get('discussionType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('discussionType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('discussionType')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.readStatus" for="field_readStatus">Read Status</label>
+                    <input type="checkbox" class="form-control" name="readStatus" id="field_readStatus"
+                           formControlName="readStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.from" for="field_from">From</label>
+                    <select class="form-control" id="field_from" name="from" formControlName="fromId">
+                        <option *ngIf="!editForm.get('fromId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userProfileOption.id" *ngFor="let userProfileOption of userprofiles; trackBy: trackById">{{ userProfileOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('fromId')!.invalid && (editForm.get('fromId')!.dirty || editForm.get('fromId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('fromId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.to" for="field_to">To</label>
+                    <select class="form-control" id="field_to" name="to" formControlName="toId">
+                        <option *ngIf="!editForm.get('toId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userProfileOption.id" *ngFor="let userProfileOption of userprofiles; trackBy: trackById">{{ userProfileOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('toId')!.invalid && (editForm.get('toId')!.dirty || editForm.get('toId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('toId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.createdBy" for="field_createdBy">Created By</label>
+                    <select class="form-control" id="field_createdBy" name="createdBy" formControlName="createdById">
+                        <option *ngIf="!editForm.get('createdById')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userProfileOption.id" *ngFor="let userProfileOption of userprofiles; trackBy: trackById">{{ userProfileOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('createdById')!.invalid && (editForm.get('createdById')!.dirty || editForm.get('createdById')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('createdById')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.enquiry" for="field_enquiry">Enquiry</label>
+                    <select class="form-control" id="field_enquiry" name="enquiry" formControlName="enquiryId">
+                        <option *ngIf="!editForm.get('enquiryId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="enquiryOption.id" *ngFor="let enquiryOption of enquiries; trackBy: trackById">{{ enquiryOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('enquiryId')!.invalid && (editForm.get('enquiryId')!.dirty || editForm.get('enquiryId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('enquiryId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option *ngIf="!editForm.get('orderId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="orderOption.id" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('orderId')!.invalid && (editForm.get('orderId')!.dirty || editForm.get('orderId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('orderId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.offer" for="field_offer">Offer</label>
+                    <select class="form-control" id="field_offer" name="offer" formControlName="offerId">
+                        <option *ngIf="!editForm.get('offerId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="offerOption.id" *ngFor="let offerOption of offers; trackBy: trackById">{{ offerOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('offerId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.message.replyMessage" for="field_replyMessage">Reply Message</label>
+                    <select class="form-control" id="field_replyMessage" name="replyMessage" formControlName="replyMessageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="messageOption.id" *ngFor="let messageOption of messages; trackBy: trackById">{{ messageOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

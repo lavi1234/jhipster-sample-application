@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="enquiry">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.detail.title">Enquiry</span> {{ enquiry.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.description">Description</span></dt>
+                <dd>
+                    <span>{{ enquiry.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.deliveryTerms">Delivery Terms</span></dt>
+                <dd>
+                    <span>{{ enquiry.deliveryTerms }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.offerTaxtUntil">Offer Taxt Until</span></dt>
+                <dd>
+                    <span>{{ enquiry.offerTaxtUntil }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.status">Status</span></dt>
+                <dd>
+                    <span>{{ enquiry.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="enquiry.productId">
+                        <a [routerLink]="['/category', enquiry.productId, 'view']">{{ enquiry.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.enquiry.deliveryAddress">Delivery Address</span></dt>
+                <dd>
+                    <div *ngIf="enquiry.deliveryAddressId">
+                        <a [routerLink]="['/address', enquiry.deliveryAddressId, 'view']">{{ enquiry.deliveryAddressId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/enquiry', enquiry.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

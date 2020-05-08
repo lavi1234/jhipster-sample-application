@@ -1,0 +1,34 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "message": {
+      "home": {
+        "title": "Messages",
+        "createLabel": "Message erstellen",
+        "createOrEditLabel": "Message erstellen oder bearbeiten",
+        "notFound": "No Messages found"
+      },
+      "created": "Message erstellt mit ID {{ param }}",
+      "updated": "Message aktualisiert mit ID {{ param }}",
+      "deleted": "Message gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Message {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Message"
+      },
+      "subject": "Subject",
+      "message": "Message",
+      "createdAt": "Created At",
+      "apiResponse": "Api Response",
+      "discussionType": "Discussion Type",
+      "readStatus": "Read Status",
+      "from": "From",
+      "to": "To",
+      "createdBy": "Created By",
+      "enquiry": "Enquiry",
+      "order": "Order",
+      "offer": "Offer",
+      "replyMessage": "Reply Message"
+    }
+  }
+}

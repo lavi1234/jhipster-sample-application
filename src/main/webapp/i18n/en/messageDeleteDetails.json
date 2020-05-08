@@ -1,0 +1,24 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "messageDeleteDetails": {
+      "home": {
+        "title": "Message Delete Details",
+        "createLabel": "Create a new Message Delete Details",
+        "createOrEditLabel": "Create or edit a Message Delete Details",
+        "notFound": "No Message Delete Details found"
+      },
+      "created": "A new Message Delete Details is created with identifier {{ param }}",
+      "updated": "A Message Delete Details is updated with identifier {{ param }}",
+      "deleted": "A Message Delete Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Message Delete Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Message Delete Details"
+      },
+      "deletedAt": "Deleted At",
+      "message": "Message",
+      "deletedBy": "Deleted By"
+    }
+  }
+}

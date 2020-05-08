@@ -1,0 +1,29 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "subscriptionPlan": {
+      "home": {
+        "title": "Subscription Plans",
+        "createLabel": "Subscription Plan erstellen",
+        "createOrEditLabel": "Subscription Plan erstellen oder bearbeiten",
+        "notFound": "No Subscription Plans found"
+      },
+      "created": "Subscription Plan erstellt mit ID {{ param }}",
+      "updated": "Subscription Plan aktualisiert mit ID {{ param }}",
+      "deleted": "Subscription Plan gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Subscription Plan {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Subscription Plan"
+      },
+      "validity": "Validity",
+      "price": "Price",
+      "createdBy": "Created By",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "name": "Name",
+      "description": "Description",
+      "subsriptionPlanFeature": "Subsription Plan Feature"
+    }
+  }
+}

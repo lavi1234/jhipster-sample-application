@@ -1,0 +1,42 @@
+{
+    "name": "EnquiryNote",
+    "fields": [
+        {
+            "fieldName": "note",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "enquiryDetails",
+            "otherEntityRelationshipName": "enquiryNote",
+            "relationshipValidateRules": "required",
+            "relationshipName": "enquiryDetails",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200508101400",
+    "entityTableName": "enquiry_note",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "transactionHistory": {
+      "home": {
+        "title": "Transaction Histories",
+        "createLabel": "Transaction History erstellen",
+        "createOrEditLabel": "Transaction History erstellen oder bearbeiten",
+        "notFound": "No Transaction Histories found"
+      },
+      "created": "Transaction History erstellt mit ID {{ param }}",
+      "updated": "Transaction History aktualisiert mit ID {{ param }}",
+      "deleted": "Transaction History gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Transaction History {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Transaction History"
+      },
+      "price": "Price",
+      "createdAt": "Created At",
+      "paymentGatewayToken": "Payment Gateway Token",
+      "paymentGatewayResponse": "Payment Gateway Response",
+      "status": "Status",
+      "subscriptionPlan": "Subscription Plan",
+      "userProfile": "User Profile"
+    }
+  }
+}

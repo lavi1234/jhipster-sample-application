@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bonus">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.bonus.detail.title">Bonus</span> {{ bonus.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ bonus.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ bonus.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ bonus.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.principalAmount">Principal Amount</span></dt>
+                <dd>
+                    <span>{{ bonus.principalAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.status">Status</span></dt>
+                <dd>
+                    <span>{{ bonus.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ bonus.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.buyer">Buyer</span></dt>
+                <dd>
+                    <div *ngIf="bonus.buyerId">
+                        <a [routerLink]="['/user-profile', bonus.buyerId, 'view']">{{ bonus.buyerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bonus.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="bonus.orderId">
+                        <a [routerLink]="['/order', bonus.orderId, 'view']">{{ bonus.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bonus', bonus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
